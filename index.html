@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS4 MENU</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            var foco = 0;
+
+            window.addEventListener('keyup',function(e){
+                console.log(e.key);
+
+
+                if(e.key == "ArrowLeft"){
+
+               
+
+                    
+
+                    if(foco > 5){
+                        foco = 6;
+                    }else{
+                        $(".itemScroll").removeClass("principalSelect");
+                        
+                        $("#scrollDesplace").css({
+                            left:"-=200px"
+                        });
+                        console.log(foco);
+                        foco++;
+                        $("#item"+foco).addClass("principalSelect");
+               
+                    }
+        
+
+                }else if(e.key == "ArrowRight"){
+
+       
+
+                    if(foco < 1){
+
+                        foco = 0;
+                    }else{
+                        $(".itemScroll").removeClass("principalSelect");
+                        $("#scrollDesplace").css({
+                            left:"+=200px"
+                        });
+                        foco--;
+                        $("#item"+foco).addClass("principalSelect");
+                    }
+                
+                }
+
+            });
+
+        });
+
+    </script>
+
+    <style>
+        body{
+            margin: 0px;;
+            font-family: sans-serif;
+        }
+        #contenido{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background:linear-gradient(45deg,black,rgba(55, 165, 255, 0.767));
+        }  
+        #header{
+            width: 100%;;
+            height: 100px;
+            background: linear-gradient(0deg,transparent,rgba(0, 0, 0, 0.664));;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+        }  
+        #contentIcon{
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .contetIconImage{
+
+            background-image: url('https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/373e69517b7a8329c34c32c3be1f9616~c5_720x720.jpeg?x-expires=1636740000&x-signature=JOxWwhAtiEF5VtpnLhOOSCmTCy0%3D');
+            background-position: center;
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px black;;
+            ;
+
+        }
+        .contentNameText{
+            font-size: 30px;
+            color:white;
+            font-weight: lighter;
+            text-shadow: 0px 0px 10px black;;
+            margin-left: 20px;
+        }
+        #contentTime{
+            flex: 1;
+            width: 100px;
+            color:white;
+            display: flex;
+            justify-content: end;
+            padding-right:50px;
+            font-size: 20px;
+        }
+        #scroll{
+            width: 100%;
+            height: 300px;
+            
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        #scrollDesplace{
+            min-width: 100%;
+            height:250px;
+        
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: absolute;
+            left: 150px;
+            -webkit-transition: all .5s ease;;
+        }
+        .itemScroll{
+            width: 180px;
+            height: 200px;
+            background: reD;;
+            
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            margin: 10px;        
+            border-radius: 10px;
+            -webkit-transition: all .5s ease;;
+        }
+        .itemScroll:hover .StartEvent{
+            opacity: 1;
+        }
+        .principalSelect{
+            width: 300px;
+            height: 230px;
+            border:2px solid rgb(11, 195, 171);
+            box-shadow: 0px 0px 10px rgb(11, 195, 171),0px 0px 20px rgb(11, 195, 171);;
+            -webkit-transform: scale(1.0.1);;
+            
+            -webkit-transition: all .5s ease;;
+        }
+        .StartEvent{
+            width: 100%;
+            height: 50px;
+            background: rgba(21, 190, 153, 0.404);;
+            backdrop-filter: blur(10px);
+            color:white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            -webkit-transition: all .5s ease;;
+        }
+        
+        .image01{
+            background-image: url('https://cdn.pocket-lint.com/r/s/1200x/assets/images/151737-games-feature-batman-games-in-order-how-to-play-the-arkham-series-and-more-image1-m8vygjidfb.jpg');
+        }
+        .image02{
+            background-image: url('https://cdn.wallpapersafari.com/81/12/mfK2d6.jpg');
+            
+        }
+        .image03{
+            background-image: url('https://img.wallpapersafari.com/desktop/1280/1024/95/28/TSadsg.jpg');
+        }
+        .image04{
+            background-image: url('https://wallpaperaccess.com/full/137059.jpg');
+        }
+
+        .image05{
+            background-image: url('https://midu.dev/images/wallpapers/una-taza-de-javascript.png');
+        }
+
+        .image06{
+            background-image: url('https://wallpaperaccess.com/full/1631863.jpg');
+        }
+        .image07{
+            background-image: url('https://i2.wp.com/codingindian.com/wp-content/uploads/2021/07/css3.jpg?fit=1600%2C900&ssl=1');
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="contenido">
+
+        <div id="header">
+
+            <div id="contentIcon">
+                <div class="contetIconImage">
+
+                </div>
+            </div>
+            <div id="contentName">
+
+                <div class="contentNameText">Jean Antony</div>
+
+            </div>
+
+            <div id="contentTime">
+                3:11 p.m
+            </div>
+
+        </div>
+
+        <div id="scroll">
+
+            <div id="scrollDesplace">
+
+                <div class="itemScroll image01 principalSelect" id="item0">
+
+                    <div class="StartEvent">Iniciar Juego</div>
+                </div>
+                <div class="itemScroll image02" id="item1">
+                    <div class="StartEvent">Iniciar Juego</div>
+                </div>
+                <div class="itemScroll image03" id="item2">
+                    <div class="StartEvent">Iniciar Juego</div>
+                </div>
+                <div class="itemScroll image04" id="item3">
+                    <div class="StartEvent">Iniciar Juego</div>
+                </div>
+                <div class="itemScroll image05" id="item4">
+                    <div class="StartEvent">Iniciar Juego</div>
+                </div>
+                <div class="itemScroll image06" id="item5">
+                    <div class="StartEvent">Iniciar Juego</div>
+                </div>
+                <div class="itemScroll image07" id="item6">
+                    <div class="StartEvent">Iniciar Juego</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
